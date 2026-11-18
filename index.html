@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZFactory – Grinwolt Studios</title>
+<meta name="description" content="ZFactory: Factory Builder – from mine to space: build machines, connect belts, grow your factory in 12 eras. A game by Grinwolt Studios.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<meta property="og:title" content="ZFactory – Grinwolt Studios">
+<meta property="og:description" content="From mine to space: build machines, connect belts, grow your factory in 12 eras.">
+<meta property="og:image" content="https://grinwoltstudios.github.io/en-hero.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Saira:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f1520;
+    --bg2: #161e2c;
+    --card: #1b2436;
+    --line: #2a3447;
+    --text: #e8edf5;
+    --muted: #9aa6ba;
+    --accent: #ffb547;
+    --accent-ink: #2a1c05;
+    --blue: #4c8dff;
+    --good: #45d16e;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Saira", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-weight: 500;
+    line-height: 1.55;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+  header.top {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 0;
+  }
+  .studio {
+    font-family: "Russo One", "Saira", sans-serif;
+    letter-spacing: .08em; font-size: 15px; color: var(--muted);
+    text-decoration: none;
+  }
+  .langs { display: flex; gap: 4px; background: var(--bg2); border: 1px solid var(--line); border-radius: 999px; padding: 3px; }
+  .langs button {
+    font: inherit; font-weight: 700; font-size: 13px; letter-spacing: .04em;
+    color: var(--muted); background: transparent; border: 0; border-radius: 999px;
+    padding: 6px 12px; min-width: 44px; min-height: 32px; cursor: pointer;
+  }
+  .langs button[aria-pressed="true"] { background: var(--card); color: var(--text); }
+
+  .hero {
+    position: relative; overflow: hidden;
+    border-radius: 20px; border: 1px solid var(--line);
+    background:
+      radial-gradient(1200px 500px at 85% -10%, rgba(76,141,255,.22), transparent 60%),
+      radial-gradient(900px 500px at -10% 110%, rgba(255,181,71,.18), transparent 60%),
+      var(--bg2);
+    padding: 40px 36px 0;
+  }
+  .hero-head { display: flex; gap: 22px; align-items: center; }
+  .hero-head img.icon { width: 96px; height: 96px; border-radius: 22px; box-shadow: 0 8px 24px rgba(0,0,0,.35); flex: none; }
+  h1 {
+    font-family: "Russo One", "Saira", sans-serif; font-weight: 400;
+    font-size: clamp(30px, 5vw, 46px); line-height: 1.1; margin: 0;
+  }
+  .tagline { font-size: clamp(16px, 2.2vw, 19px); color: var(--muted); margin: 18px 0 24px; max-width: 640px; }
+  .cta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-bottom: 32px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 13px 22px; min-height: 48px; border-radius: 12px;
+    font-weight: 800; font-size: 16px; text-decoration: none;
+  }
+  .btn-primary { background: var(--accent); color: var(--accent-ink); }
+  .btn-primary:hover { filter: brightness(1.06); }
+  .btn-primary svg { width: 20px; height: 20px; flex: none; }
+  .note { color: var(--muted); font-size: 14px; }
+  .shot-hero {
+    display: block; width: 100%; height: auto;
+    border-radius: 14px 14px 0 0; border: 1px solid var(--line); border-bottom: 0;
+    aspect-ratio: 16 / 9; object-fit: cover; background: var(--card);
+  }
+
+  section { margin: 56px 0; }
+  h2 {
+    font-family: "Russo One", "Saira", sans-serif; font-weight: 400;
+    font-size: 24px; margin: 0 0 20px;
+  }
+  .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; }
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+    padding: 20px 20px 18px;
+  }
+  .card h3 { margin: 0 0 6px; font-size: 17px; font-weight: 800; color: var(--accent); }
+  .card p { margin: 0; color: var(--muted); font-size: 15px; }
+
+  .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .gallery img {
+    display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover;
+    border-radius: 14px; border: 1px solid var(--line); background: var(--card);
+  }
+
+  footer {
+    border-top: 1px solid var(--line); margin-top: 64px; padding: 26px 0 40px;
+    display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: space-between; align-items: center;
+    color: var(--muted); font-size: 14px;
+  }
+  footer nav { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+  footer a { color: var(--text); text-decoration: none; border-bottom: 1px solid var(--line); }
+  footer a:hover { border-color: var(--accent); }
+
+  @media (max-width: 640px) {
+    .hero { padding: 26px 18px 0; border-radius: 16px; }
+    .hero-head { gap: 16px; }
+    .hero-head img.icon { width: 72px; height: 72px; border-radius: 16px; }
+    .gallery { grid-template-columns: 1fr; }
+    section { margin: 40px 0; }
+    .wrap { padding: 0 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="studio" href="./">GRINWOLT STUDIOS</a>
+    <div class="langs" role="group" aria-label="Language">
+      <button type="button" data-set-lang="tr" aria-pressed="false">TR</button>
+      <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div class="hero-head">
+        <img class="icon" src="icon.png" alt="ZFactory" width="96" height="96">
+        <h1 data-tr="ZFactory: Fabrika Kur" data-en="ZFactory: Factory Builder">ZFactory: Factory Builder</h1>
+      </div>
+      <p class="tagline"
+         data-tr="Madenden uzaya: makineleri kur, bantları bağla, fabrikanı 12 çağ boyunca büyüt!"
+         data-en="From mine to space: build machines, connect belts, grow your factory in 12 eras.">From mine to space: build machines, connect belts, grow your factory in 12 eras.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.zfactory.game" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M5 3.5v17a1 1 0 0 0 1.5.86l14-8.5a1 1 0 0 0 0-1.72l-14-8.5A1 1 0 0 0 5 3.5Z"/></svg>
+          <span data-tr="Google Play'den indir" data-en="Get it on Google Play">Get it on Google Play</span>
+        </a>
+        <span class="note" data-tr="Android · Ücretsiz · İnternetsiz oynanır" data-en="Android · Free · Plays offline">Android · Free · Plays offline</span>
+      </div>
+      <img class="shot-hero" data-img="hero" src="en-hero.jpg" alt="" width="1600" height="900">
+    </div>
+
+    <section>
+      <h2 data-tr="Oyun hakkında" data-en="About the game">About the game</h2>
+      <div class="features">
+        <div class="card">
+          <h3 data-tr="Fabrikanı kur" data-en="Build your factory">Build your factory</h3>
+          <p data-tr="Cevheri çıkar, fırında erit, atölye ve montajcılarda parçalara dönüştür. Bantları parmağınla çiz."
+             data-en="Mine ore, smelt it in furnaces and turn it into parts in workshops and assemblers. Draw belts with your finger.">Mine ore, smelt it in furnaces and turn it into parts in workshops and assemblers. Draw belts with your finger.</p>
+        </div>
+        <div class="card">
+          <h3 data-tr="Oranları tuttur" data-en="Balance the ratios">Balance the ratios</h3>
+          <p data-tr="Her makinenin hızı belli: hatlarını %100 verime ulaştır, kesintisiz çalışan hatlar Mükemmel Hat olur."
+             data-en="Every machine has a fixed speed: reach 100% efficiency, and lines that never stop become a Perfect Line.">Every machine has a fixed speed: reach 100% efficiency, and lines that never stop become a Perfect Line.</p>
+        </div>
+        <div class="card">
+          <h3 data-tr="12 çağ, 5 harita" data-en="12 eras, 5 maps">12 eras, 5 maps</h3>
+          <p data-tr="Demir Çağı'ndan Uzay Çağı'na ilerle, yeni haritalar aç ve malzemeyi tren istasyonlarıyla taşı."
+             data-en="Advance from the Iron Age to the Space Age, open new maps and move materials with train stations.">Advance from the Iron Age to the Space Age, open new maps and move materials with train stations.</p>
+        </div>
+        <div class="card">
+          <h3 data-tr="Rahat ve derin" data-en="Relaxing and deep">Relaxing and deep</h3>
+          <p data-tr="İnşaat Modu'nda oyunu durdurup yerleşimini düzenle. Sen yokken fabrikan çalışmaya devam eder."
+             data-en="Pause in Build Mode to rearrange your layout. Your factory keeps working while you are away.">Pause in Build Mode to rearrange your layout. Your factory keeps working while you are away.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 data-tr="Ekran görüntüleri" data-en="Screenshots">Screenshots</h2>
+      <div class="gallery">
+        <img data-img="s1" src="en-s1.jpg" alt="" width="1200" height="675" loading="lazy">
+        <img data-img="s4" src="en-s4.jpg" alt="" width="1200" height="675" loading="lazy">
+        <img data-img="s2" src="en-s2.jpg" alt="" width="1200" height="675" loading="lazy">
+        <img data-img="s3" src="en-s3.jpg" alt="" width="1200" height="675" loading="lazy">
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© 2026 Grinwolt Studios</span>
+    <nav>
+      <a href="https://play.google.com/store/apps/details?id=com.zfactory.game" rel="noopener">Google Play</a>
+      <a href="https://docs.google.com/document/d/e/2PACX-1vR3h2MPjALsbpvxrn5UVxzV5xc7WXgJBH84YGG1rlgIqxa_-a4sagpzLkIzjeh4HZJwj7s-NgznnNdw/pub" rel="noopener" data-tr="Gizlilik politikası" data-en="Privacy policy">Privacy policy</a>
+    </nav>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var supported = ["tr", "en"];
+  function pick() {
+    try {
+      var saved = localStorage.getItem("lang");
+      if (saved && supported.indexOf(saved) >= 0) return saved;
+    } catch (e) {}
+    var nav = (navigator.language || "en").toLowerCase();
+    return nav.indexOf("tr") === 0 ? "tr" : "en";
+  }
+  function apply(lang) {
+    document.documentElement.lang = lang;
+    document.querySelectorAll("[data-" + lang + "]").forEach(function (el) {
+      el.textContent = el.getAttribute("data-" + lang);
+    });
+    document.querySelectorAll("[data-img]").forEach(function (img) {
+      img.src = lang + "-" + img.getAttribute("data-img") + ".jpg";
+    });
+    document.querySelectorAll("[data-set-lang]").forEach(function (b) {
+      b.setAttribute("aria-pressed", b.getAttribute("data-set-lang") === lang ? "true" : "false");
+    });
+  }
+  document.querySelectorAll("[data-set-lang]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var lang = b.getAttribute("data-set-lang");
+      try { localStorage.setItem("lang", lang); } catch (e) {}
+      apply(lang);
+    });
+  });
+  apply(pick());
+})();
+</script>
+</body>
+</html>
